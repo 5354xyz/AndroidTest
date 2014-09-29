@@ -1,0 +1,128 @@
+<com.example.utils.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:crysecontrol="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/com_act_sildingFinishLayout"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFFFFF"
+    tools:context=".CommentActivity" >
+
+	<RelativeLayout
+	    android:id="@+id/comment_r_title"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="#F0F8FF"
+	    android:paddingRight="10.0dp" >
+
+	    <TextView
+	        android:id="@+id/comment_back"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_marginBottom="5dp"
+	        android:layout_marginTop="5dp"
+	        android:background="@drawable/title_back"
+	        android:clickable="true"
+	        android:gravity="center"
+	        android:text="@string/back"
+	        android:textColor="@color/white"
+	        android:textSize="16.0sp" />
+
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:layout_marginBottom="5dp"
+	        android:layout_marginTop="5dp"
+	        android:text="@string/comment_list"
+	        android:textColor="@color/black"
+	        android:textSize="16.0sp" />
+
+	    <com.example.utils.RoundedImageView
+	        android:id="@+id/comment_myicon"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginBottom="5dp"
+	        android:layout_marginTop="5dp"
+	        android:scaleType="center"
+	        android:src="@drawable/male_touxiang_default"
+	        crysecontrol:border_color="#FFFF00"
+	        crysecontrol:border_thickness="2dp" />
+	</RelativeLayout>
+
+	
+	
+<RelativeLayout 
+    android:id="@+id/sendcomment_r"
+    android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_alignParentBottom="true"
+	android:focusable="true"  
+   	android:focusableInTouchMode="true"
+	android:background="@color/white"
+    >
+	<EditText
+	    android:id="@+id/et_comment"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginBottom="2dp"
+	    android:paddingLeft="20dp"
+	    
+	    android:hint="@string/writecomment"
+	    android:inputType="text"
+	    android:singleLine="true" />
+
+	<ImageView
+	    android:id="@+id/et_commentImg"
+	    android:layout_height="wrap_content"
+	    android:layout_width="wrap_content"
+	    android:layout_alignBottom="@id/et_comment"
+	    android:layout_alignLeft="@id/et_comment"
+	    android:layout_alignTop="@id/et_comment"
+	    android:contentDescription="@string/app_name"
+	    android:src="@drawable/comment_50" />
+	<ImageButton 
+	    android:id="@+id/sendcomment"
+	    android:layout_height="wrap_content"
+	    android:layout_width="wrap_content"
+	    android:layout_alignParentRight="true"
+	    android:contentDescription="@string/app_name"
+	    android:src="@drawable/sendcomment"
+	    />
+ </RelativeLayout>
+	<FrameLayout
+	    android:id="@+id/new_comment_list_frame"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_below="@id/comment_r_title"
+	    android:layout_above="@id/sendcomment_r"
+	    android:layout_margin="5dp" >
+
+	    <ListView
+	        android:id="@+id/new_comment_list"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="2dp"
+	        android:layout_marginRight="2dp"
+	        android:cacheColorHint="#00000000"
+	        android:background="#FFFFFF"
+	        android:divider="@null"
+	        android:dividerHeight="2dp" />
+	    <!-- Here is the view to show if the list is emtpy -->
+
+	    <TextView
+	        android:id="@+id/newemptytext"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="10dp"
+	        android:text="@string/hot_defualt_tips"
+	        android:visibility="gone" />
+	</FrameLayout>
+
+
+</com.example.utils.SildingFinishLayout>

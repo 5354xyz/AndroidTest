@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/int_dia_relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <CheckBox
+        android:id="@+id/joke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/read"
+        style="@style/normalText"
+        android:layout_marginTop="27dp"
+        android:text="@string/joke" />
+
+    <CheckBox
+        android:id="@+id/entertainment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/joke"
+        android:layout_alignBottom="@+id/joke"
+        style="@style/normalText"
+        android:layout_alignLeft="@+id/read"
+        android:text="@string/entertainment" />
+
+    <CheckBox
+        android:id="@+id/sport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/entertainment"
+        android:layout_alignBottom="@+id/entertainment"
+        style="@style/normalText"
+        android:layout_alignLeft="@+id/game"
+        android:text="@string/sport" />
+
+    <TextView
+        android:id="@+id/textView_int"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        style="@style/normalText"
+        android:textSize="20sp"
+        android:padding="10dip"
+        android:background="@drawable/bg_alibuybutton_selected"
+        android:drawableLeft="@drawable/ic_launcher48"
+        android:text="@string/int_dialog_notice" />
+
+    <CheckBox
+        android:id="@+id/news"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/game"
+        style="@style/normalText"
+        android:layout_alignParentLeft="true"
+        android:text="@string/news" />
+
+    <CheckBox
+        android:id="@+id/game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView_int"
+        android:layout_marginRight="35dp"
+        style="@style/normalText"
+        android:layout_marginTop="18dp"
+        android:text="@string/game" />
+
+    <CheckBox
+        android:id="@+id/read"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/news"
+        android:layout_alignBottom="@+id/news"
+        android:layout_marginLeft="42dp"
+        style="@style/normalText"
+        android:layout_toRightOf="@+id/news"
+        android:text="@string/read" />
+
+    <Button
+        android:id="@+id/comfirm_int"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/normalText"
+        android:layout_alignBaseline="@+id/cancel_int"
+        android:layout_alignBottom="@+id/cancel_int"
+        android:layout_toLeftOf="@+id/entertainment"
+        android:background="@drawable/bg_alibuybutton_states"
+        android:text="@string/comfirm"
+         />
+
+    <Button
+        android:id="@+id/cancel_int"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sport"
+        android:layout_marginTop="18dp"
+        style="@style/normalText"
+        android:layout_toRightOf="@+id/entertainment"
+        android:background="@drawable/bg_alibuybutton_states"
+        android:text="@string/cancel"
+         />
+
+</RelativeLayout>

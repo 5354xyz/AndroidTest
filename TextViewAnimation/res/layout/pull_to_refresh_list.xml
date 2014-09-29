@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.utils.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/pulltorefresh_sildingFinishLayout"
+    android:background="#DBDBDB"
+    android:orientation="vertical" >
+    <RelativeLayout
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:id="@+id/content_list_RelativeLayout"
+    	>
+    <RelativeLayout
+        android:id="@+id/pull_to_refresh_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_alibuybutton_selected"
+        android:paddingLeft="2.0dp"
+        android:paddingRight="2.0dp" >
+        <Button
+            android:id="@+id/pull_to_refresh_backbut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/title_back"
+            android:text="@string/back"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/white"
+            android:textSize="16.0sp"
+            android:onClick="back"
+            android:clickable="true"
+             />
+   
+        <TextView 
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_toRightOf="@id/pull_to_refresh_backbut"
+        	android:singleLine="true"
+			android:focusable="true"
+			android:focusableInTouchMode="true"
+			android:scrollHorizontally="true"
+			android:layout_centerVertical="true"
+			android:marqueeRepeatLimit="marquee_forever"
+			android:ellipsize="marquee"
+			android:textSize="18sp"
+        	android:text="@string/split_title_text"
+        		/>
+   		<Button
+        	android:id="@+id/SpiltOut"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_alignParentRight="true"
+        	android:layout_centerVertical="true"
+        	android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+        	android:layout_marginRight="1dip"
+        	android:background="@drawable/tospilt_write"
+         	/>
+    
+    
+     </RelativeLayout>
+
+    <!-- The PullToRefreshListView replaces a standard ListView widget. -->
+
+    <pulltorefresh_listview.RefreshListView
+        android:id="@+id/pull_refresh_list"
+        android:layout_below="@id/pull_to_refresh_title"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:dividerHeight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         />
+
+    <ImageView
+        android:id="@+id/lv_backtotop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:paddingBottom="8dp"
+        android:paddingRight="10dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/lv_backtotop" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/image_show_RelativeLayout"
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:background="#FFFFFF"
+    	android:visibility="gone"
+    	>
+    <RelativeLayout
+        android:id="@+id/imageshow_dialog_head"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:background="#00000000"
+        >
+    <ImageButton
+        android:id="@+id/imageClose_but"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:layout_margin="5dp"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/closebut_60"
+        android:contentDescription="@string/app_name"
+        />
+    <TextView
+        style="@style/normalText" 
+        android:id="@+id/image_num_show_text"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:text="@string/image_num_show_text"
+        />
+    </RelativeLayout>
+      <!-- 这个组件，注意这个组件是用来显示左右滑动的界面的，如果不加载xml布局文件，他是不会显示内容的。   -->
+    <android.support.v4.view.ViewPager    
+        android:id="@+id/imageViewpager"
+        android:layout_below="@id/imageshow_dialog_head" 
+        android:layout_width="match_parent"  
+        android:layout_height="match_parent"  
+        />
+
+</RelativeLayout>
+
+</com.example.utils.SildingFinishLayout>

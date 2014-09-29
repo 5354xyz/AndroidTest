@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:crysecontrol="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/spilt_item_linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+        
+        >
+        <com.example.utils.RoundedImageView
+	    	android:id="@+id/spilt_author_icon"
+	    	android:layout_alignParentLeft="true"
+	    	android:layout_centerVertical="true"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_margin="2dp"
+        	android:scaleType="center"
+        	android:src="@drawable/male_touxiang_default"
+        	crysecontrol:border_thickness="1dp"
+        	crysecontrol:border_color="#87CEFF"
+        >
+    	</com.example.utils.RoundedImageView>
+    	<TextView
+        	android:id="@+id/spiltauthor"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_alignParentTop="true"
+        	android:layout_toRightOf="@id/spilt_author_icon"
+        	android:text="@string/app_name"
+        	android:layout_marginTop="2dp"
+        	android:layout_marginLeft="2dp"
+        	android:textColor="@color/black"
+        	android:textSize="18sp" />
+    	
+        <TextView
+        	android:id="@+id/spilttime"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_below="@id/spiltauthor"
+        	android:layout_toRightOf="@id/spilt_author_icon"
+        	android:text="@string/defaulttime"
+        	android:layout_marginLeft="2dp"
+        	android:layout_marginBottom="2dp"
+        	android:textColor="@color/black"
+        	android:textSize="12sp" />
+        
+        <TextView
+        	android:id="@+id/spiltcomment"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_alignParentRight="true"
+        	android:layout_centerVertical="true"
+        	android:background="@drawable/bg_alibuybutton_default"
+        	android:text="@string/comment"
+        	android:drawableLeft="@drawable/comment_50"
+        	android:layout_marginLeft="3dp"
+        	android:layout_marginBottom="3dp"
+        	android:gravity="center_vertical"
+        	android:layout_marginRight="5dp"
+        	android:padding="2dp"
+        	android:visibility="gone"
+        	android:textColor="@color/black"
+        	android:textSize="20sp" />
+    </RelativeLayout>
+    
+    <View android:layout_width="fill_parent" 
+        android:layout_height="2dip" 
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:background="#FFEC8B" />
+    
+    <TextView
+        android:id="@+id/spiltcontent"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/spilt"
+        android:textSize="20sp" />
+    
+    <ImageView 
+        android:id="@+id/spiltImageModel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:padding="5dp"
+        android:clickable="true"
+        android:focusable="false"
+		android:focusableInTouchMode="false"
+        android:layout_margin="2dp"
+        android:visibility="gone"
+        android:src="@drawable/black_bg"
+        android:contentDescription="@string/app_name"
+        />
+
+    <RelativeLayout
+        android:ignoreGravity="@+id/spilt_item_relativeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        >
+        
+        <Button 
+            android:id="@+id/spilt_but_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:paddingRight="2dp"
+        	android:paddingLeft="2dp"
+            android:text="@string/up"
+            android:gravity="center"
+            android:background="@drawable/bg_alibuybutton_default"
+            android:textSize="18sp"
+            />
+        <Button
+            android:id="@+id/spilt_but_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:paddingRight="2dp"
+        	android:paddingLeft="2dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/down"
+            android:background="@drawable/bg_alibuybutton_default"
+            android:textSize="18sp" />
+
+
+
+    </RelativeLayout>
+        <TextView
+            android:id="@+id/spiltLocation"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/bg_alibuybutton_states"
+            android:drawableLeft="@drawable/location"
+            android:clickable="false"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:padding="0dip"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="@string/null_"
+            android:textStyle="italic"
+            android:textSize="18sp" />
+    
+</LinearLayout>

@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/login_bg"
+    android:cacheColorHint="#00000000"
+    tools:context=".MainActivity" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_alibuybutton_selected"
+        android:paddingLeft="2.0dp"
+        android:paddingRight="2.0dp" >
+        
+        <TextView
+        	style="@style/normalText"
+        	android:layout_width="wrap_content"
+        	android:layout_height="30dp"
+        	android:layout_alignParentLeft="true"
+        	android:layout_centerVertical="true"
+        	android:drawableLeft="@drawable/icon_defualt"
+        	android:gravity="center"
+        	android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+        	android:text="@string/null_"
+        	android:textColor="#404040"
+        	android:layout_marginLeft="5dp"
+        	android:background="@drawable/bg_alibuybutton_states"
+        	android:textSize="20sp" />
+    	<Button
+        	android:id="@+id/toSpiltOut"
+        	style="@style/toolbar_text"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_marginRight="2dp"
+        	android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+        	android:padding="2dp"
+        	android:background="@drawable/bg_alibuybutton_states"
+        	android:layout_alignParentRight="true"
+        	android:layout_centerVertical="true"
+        	android:text="@string/spilt_s"
+         	/>
+        </RelativeLayout>
+
+<!-- 而INVISIBLE和GONE的主要区别是：当控件visibility属性为INVISIBLE时，
+	界面保留了view控件所占有的空间；而控件属性为GONE时，
+	界面则不保留view控件所占有的空间。 -->
+	<!-- TextView onclick方法使用的时候要加上android:clickable="true"属性 -->
+
+    <com.example.utils.KeywordsFlow
+        android:id="@+id/textviewShowId"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@color/white"
+        
+        >
+    </com.example.utils.KeywordsFlow>
+
+    <!-- gif图片 
+    <com.ant.liao.GifView android:id="@+id/giffengge"
+        
+ 		android:layout_height="wrap_content" 
+ 		android:layout_width="fill_parent"
+ 		android:enabled="false" />
+ 		-->
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_login"
+        android:gravity="center"
+        >
+        <Button
+            android:id="@+id/main_but"
+            android:text="@string/mianjing"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:padding="20dp"
+            android:layout_margin="20dp" 
+            android:background="@drawable/bg_alibuybutton_pressed"
+            android:contentDescription="@string/app_name"
+            
+            />
+    </RelativeLayout>
+    
+</LinearLayout>

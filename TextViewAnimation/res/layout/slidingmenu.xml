@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:crysecontrol="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/slidingmenu_background"
+    android:orientation="vertical" >
+    <RelativeLayout 
+        android:id="@+id/slidingmenu_title"
+        android:background="@drawable/bg_alibuybutton_selected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        >
+        <Button
+        	android:id="@+id/slidingmenu_back_but"
+        	android:background="@drawable/title_back_right"
+        	android:layout_width="wrap_content"
+        	android:layout_height="30dp"
+        	android:layout_alignParentRight="true"
+        	android:layout_centerVertical="true"
+        	android:text="@string/back"
+        	android:padding="0dp"
+        	android:textSize="16.0sp"
+        	android:layout_marginRight="3dp"
+        	android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+        	android:clickable="true"
+        	android:contentDescription="@string/app_name" />
+
+    	<TextView
+        	style="@style/toolbar_text"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_centerInParent="true"
+        	android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+        	android:text="@string/personalcenter" />
+	</RelativeLayout>
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        
+        >
+	<com.example.utils.RoundedImageView
+	    android:id="@+id/slidingmenu_myicon"
+	    android:layout_alignParentTop="true"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:src="@drawable/test_logo"
+        crysecontrol:border_thickness="2dp"
+        crysecontrol:border_color="#FFFF00"
+        >
+    </com.example.utils.RoundedImageView>
+    <TextView 
+        android:id="@+id/slidingmenu_myname_text"
+        android:layout_below="@id/slidingmenu_myicon"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        style="@style/big_white_text"
+        android:text="@string/defaultname"
+        />
+    
+    <GridView  
+        android:id="@+id/slidingmenu_gridview"
+        android:layout_width="match_parent"  
+        android:layout_height="wrap_content"
+        android:layout_below="@id/slidingmenu_myname_text"
+        android:layout_marginTop="50dp"
+        android:horizontalSpacing="10dp"  
+        android:verticalSpacing="10dp" 
+        android:cacheColorHint="#00000000"
+        android:listSelector="#00000000" 
+        android:numColumns="auto_fit"
+        android:padding="5dp"
+        android:fadingEdge="none"  
+        android:scrollbars="none"/>
+        
+    </RelativeLayout>
+</LinearLayout>

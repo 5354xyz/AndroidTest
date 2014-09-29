@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:crysecontrol="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/comment_item_linearLayout"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@drawable/roundbord"
+    android:orientation="vertical" >
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"   
+        >
+        <com.example.utils.RoundedImageView
+	    	android:id="@+id/comment_author_icon"
+	    	android:layout_alignParentLeft="true"
+	    	android:layout_centerVertical="true"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_margin="2dp"
+        	android:scaleType="center"
+        	android:src="@drawable/male_touxiang_default"
+        	crysecontrol:border_thickness="1dp"
+        	crysecontrol:border_color="#87CEFF"
+        >
+    	</com.example.utils.RoundedImageView>
+    	<TextView
+        	android:id="@+id/commentauthor"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_alignParentTop="true"
+        	android:layout_toRightOf="@id/comment_author_icon"
+        	android:text="@string/app_name"
+        	android:layout_marginTop="2dp"
+        	android:layout_marginLeft="2dp"
+        	android:textColor="@color/black"
+        	android:textSize="18sp" />
+    	
+        <TextView
+        	android:id="@+id/commenttime"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_below="@id/commentauthor"
+        	android:layout_toRightOf="@id/comment_author_icon"
+        	android:text="@string/defaulttime"
+        	android:layout_marginLeft="2dp"
+        	android:layout_marginBottom="2dp"
+        	android:textColor="@color/black"
+        	android:textSize="12sp" />
+        <TextView
+        	android:id="@+id/commenthot"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_alignParentRight="true"
+        	android:layout_centerVertical="true"
+        	android:background="@drawable/bg_alibuybutton_default"
+        	android:text="@string/hot"
+        	android:drawableLeft="@drawable/up1"
+        	android:layout_marginLeft="3dp"
+        	android:layout_marginBottom="3dp"
+        	android:gravity="center_vertical"
+        	android:layout_marginRight="5dp"
+        	android:padding="2dp"
+        	android:textColor="@color/black"
+        	android:textSize="20sp" />
+        </RelativeLayout>
+    
+    
+    
+    <TextView
+        android:id="@+id/commentcontent"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/spilt"
+        android:textSize="20sp" />
+
+
+</LinearLayout>

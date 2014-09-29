@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+pivotX="50%" 相当于控件本身
+pivotX="50" 相当于X轴的绝对值
+pivotX="50%p" 相当于父控件
+shareInterpolator,是否共享Interpolator
+interpolator控制动画的渐变效果
+
+	AccelerateDecelerateInterpolator 在动画开始与介绍的地方速率改变比较慢，在中间的时候加速
+    AccelerateInterpolator  在动画开始的地方速率改变比较慢，然后开始加速
+    AnticipateInterpolator 开始的时候向后然后向前甩
+    AnticipateOvershootInterpolator 开始的时候向后然后向前甩一定值后返回最后的值
+    BounceInterpolator   动画结束的时候弹起
+    CycleInterpolator 动画循环播放特定的次数，速率改变沿着正弦曲线
+    DecelerateInterpolator 在动画开始的地方快然后慢
+    LinearInterpolator   以常量速率改变
+    OvershootInterpolator    向前甩一定值后再回到原来位置
+-->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shareInterpolator="false" >
+
+    <scale
+        
+        android:duration="3500"
+        android:fillAfter="false"
+        android:fromXScale="0.0"
+        android:fromYScale="0.0"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:repeatCount="-1"
+        android:toXScale="1.0"
+        android:toYScale="1.0" />
+
+    <alpha
+        android:duration="3500"
+        android:fromAlpha="0.0"
+       android:repeatCount="-1"
+        
+        android:toAlpha="1.0"
+        />
+
+</set>

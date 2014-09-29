@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/content_bk_5"
+    android:orientation="vertical" >
+	<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_alibuybutton_selected"
+        android:paddingLeft="2.0dp"
+        android:paddingRight="2.0dp" >
+
+        <Button
+        	android:id="@+id/contentToolbar_back_but"
+        	android:background="@drawable/title_back"
+        	android:text="@string/back"
+        	android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+        	android:layout_marginTop="2dp"
+        	android:layout_marginBottom="2dp"
+        	android:contentDescription="@string/app_name" />
+
+         <TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_centerInParent="true"
+        	android:layout_marginTop="2dp"
+        	android:layout_marginBottom="2dp"
+        	android:textColor="@color/black"
+        	android:text="@string/app_name" 
+        	/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+        
+        <ImageView 
+        android:id="@+id/content_down_image"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/down1"
+        android:visibility="gone"
+        />
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/contentTitleId"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+         		android:scrollHorizontally="true"
+         		android:focusableInTouchMode="true"
+                android:scrollbars="vertical"
+                android:singleLine="true"
+                android:text="@string/hello_world"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/contentTextId"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/normalText"
+                android:scrollbars="vertical"
+                android:singleLine="false"
+                android:text="@string/app_name"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/content_linear_in"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+
+            <Button
+                android:id="@+id/content_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_alibuybutton_default"
+                android:drawableLeft="@drawable/up1"
+                android:text="@string/up" />
+
+            <Button
+                android:id="@+id/content_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_alibuybutton_default"
+                android:drawableLeft="@drawable/down1"
+                android:text="@string/down" />
+        </LinearLayout>
+        <ImageView 
+        android:id="@+id/content_up_image"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/up1"
+        android:visibility="gone"
+        />
+    </RelativeLayout>
+
+    
+</LinearLayout>

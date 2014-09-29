@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.utils.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/post_act_sildingFinishLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+<!-- com.example.utils.SildingFinishLayout -->
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_alibuybutton_selected"
+        android:gravity="center"
+        android:paddingLeft="10.0dp"
+        android:paddingRight="10.0dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/title_back"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="back"
+            android:text="@string/back"
+            android:textColor="@color/white"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/title_comm"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="send"
+            android:text="@string/send"
+            android:textColor="@color/white"
+            android:textSize="16.0sp" />
+    </RelativeLayout>
+
+    <biaoqing.FaceRelativeLayout
+        android:id="@+id/post_edict"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:background="@drawable/background_login_div_bg" >
+       <RelativeLayout
+        android:id="@+id/ll_facechoose"
+        android:layout_width="fill_parent"
+        android:layout_height="124dip"
+        android:background="#f6f5f5"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        >		
+       <android.support.v4.view.ViewPager
+            android:id="@+id/vp_contains"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </android.support.v4.view.ViewPager>
+		
+        <LinearLayout
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="6dip"
+            android:gravity="center"
+            android:orientation="horizontal" >
+            
+        </LinearLayout>
+    </RelativeLayout>
+		<RelativeLayout
+        android:id="@+id/rl_input"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_above="@id/ll_facechoose"
+        >
+        <EditText
+            android:id="@+id/et_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:autoLink="web"
+            android:background="@color/white"
+            android:gravity="top"
+            android:hint="@string/spilt"
+            android:imeOptions="actionDone"
+            android:lineSpacingExtra="6.0dp"
+            android:paddingLeft="10.0dp"
+            android:paddingRight="10.0dp"
+            android:paddingTop="10.0dp"
+            android:textColor="@color/black"
+            android:textSize="16.0sp" />
+		<LinearLayout
+		    android:id="@+id/other_of_spilt"
+		    android:layout_alignParentBottom="true"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:background="@drawable/bg_alibuybutton_selected"
+		    android:orientation="horizontal"
+		    >
+        <ImageButton 
+            android:id="@+id/countenance_1"
+            android:layout_width="wrap_content"       
+            android:layout_height="wrap_content"
+            android:src="@drawable/biaoqing32"
+            android:contentDescription="@string/app_name"
+            />
+        <ImageButton 
+            android:id="@+id/post_photo"
+            android:layout_width="wrap_content"       
+            android:layout_height="wrap_content"
+            android:src="@drawable/tupian"
+            android:contentDescription="@string/app_name"
+            />
+        <ImageButton 
+            android:id="@+id/post_camera"
+            android:layout_width="wrap_content"       
+            android:layout_height="wrap_content"
+            android:src="@drawable/camera"
+            android:contentDescription="@string/app_name"
+            />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/post_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/other_of_spilt"
+            android:clickable="true"
+            android:drawableLeft="@drawable/location"
+            android:onClick="location"
+            android:paddingLeft="10.0dp"
+            android:text="@string/null_"
+            android:textSize="12.0sp" />
+
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/post_location"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:padding="10.0dp"
+            android:text="@string/maxcount"
+            android:textColor="@color/black"
+            android:textSize="12.0sp" />
+
+        <TextView
+            android:id="@+id/post_text_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/post_location"
+            android:layout_toLeftOf="@+id/count"
+            android:gravity="right"
+            android:paddingBottom="10.0dp"
+            android:text="@string/leftcount"
+            android:textColor="@color/black"
+            android:textSize="12.0sp" />
+        <GridView  
+        	android:id="@+id/post_pic_gridview"
+        	android:layout_width="match_parent"  
+        	android:layout_height="wrap_content"
+        	android:layout_above="@id/post_location"
+        	android:layout_marginBottom="5dp"
+        	android:horizontalSpacing="5dp"  
+        	android:verticalSpacing="5dp" 
+        	android:cacheColorHint="#00000000"
+        	android:listSelector="#00000000" 
+        	android:numColumns="auto_fit"
+        	android:padding="5dp"
+        	android:fadingEdge="none"  
+        	android:scrollbars="none"/>
+        
+        </RelativeLayout>
+
+    </biaoqing.FaceRelativeLayout>
+
+</com.example.utils.SildingFinishLayout>
