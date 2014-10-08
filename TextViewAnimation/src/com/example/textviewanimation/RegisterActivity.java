@@ -86,12 +86,14 @@ public class RegisterActivity extends Activity {
 		SildingFinishLayout mSildingFinishLayout = (SildingFinishLayout) findViewById(R.id.reg_act_sildingFinishLayout);
 		mSildingFinishLayout
 				.setOnSildingFinishListener(new OnSildingFinishListener() {
-
 					@Override
-					public void onSildingFinish() {
-						RegisterActivity.this.finish();
+					public void onSildingFinish(int type) {
+						// TODO Auto-generated method stub
+						if (type == 1)
+							RegisterActivity.this.finish();
 					}
 				});
+		mSildingFinishLayout.setSlidingDirection(1);
 		usernameText=(EditText)findViewById(R.id.register_username_edit);
 		
 		passwordText=(EditText)findViewById(R.id.register_pass_edit);
