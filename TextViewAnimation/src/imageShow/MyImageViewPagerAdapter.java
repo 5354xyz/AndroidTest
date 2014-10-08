@@ -11,6 +11,7 @@ import personInfo.ImageModel;
 
 import com.example.textviewanimation.Contacts;
 import com.example.textviewanimation.R;
+import com.example.utils.ZoomImageView;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -45,7 +46,7 @@ public class MyImageViewPagerAdapter extends PagerAdapter
 	{
 		for(int k=0;k<mListImageModels.size();k++)
 		{
-			ImageView defualtImage = new ImageView(context);
+			ZoomImageView defualtImage = new ZoomImageView(context);
 			defualtImage.setLayoutParams(new LayoutParams(     
 	                   LayoutParams.MATCH_PARENT,     
 	                   LayoutParams.WRAP_CONTENT     
@@ -61,7 +62,7 @@ public class MyImageViewPagerAdapter extends PagerAdapter
 		
 		container.addView(mListViews.get(position), position);//添加页卡 
 		System.out.println("path:"+Contacts.BaseURL_IMAGE+mListImageModels.get(position).getImg_path());
-		loadImage(Contacts.BaseURL_IMAGE+mListImageModels.get(position).getImg_path(), (ImageView)container.getChildAt(position));
+		loadImage(Contacts.BaseURL_IMAGE+mListImageModels.get(position).getImg_path(), (ZoomImageView)container.getChildAt(position));
          
          return mListViews.get(position);  
     }
@@ -74,7 +75,7 @@ public class MyImageViewPagerAdapter extends PagerAdapter
 		// TODO Auto-generated method stub
 		return arg0==arg1;//官方提示这样写
 	}
-	public Drawable loadImage(final String imageUrl,ImageView imageView)
+	public Drawable loadImage(final String imageUrl,ZoomImageView imageView)
 	{
 		AsyncImageLoadUtil loader=new AsyncImageLoadUtil();
 		Drawable imagefromweb=null;
