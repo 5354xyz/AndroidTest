@@ -94,12 +94,14 @@ public class PostActivity extends Activity {
 		SildingFinishLayout mSildingFinishLayout = (SildingFinishLayout) findViewById(R.id.post_act_sildingFinishLayout);
 		mSildingFinishLayout
 				.setOnSildingFinishListener(new OnSildingFinishListener() {
-
 					@Override
-					public void onSildingFinish() {
-						PostActivity.this.finish();
+					public void onSildingFinish(int type) {
+						// TODO Auto-generated method stub
+						if (type == 1)
+							PostActivity.this.finish();
 					}
 				});
+		mSildingFinishLayout.setSlidingDirection(1);
 		mLocationClient = new LocationClient(getApplicationContext());     //ÉùÃ÷LocationClientÀà
 	    
 	    mLocationClient.setAK("50b6248aed30effde0d0cba9536b8524");

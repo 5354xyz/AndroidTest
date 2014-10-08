@@ -192,12 +192,14 @@ public class CommentActivity extends Activity implements OnClickListener
 		SildingFinishLayout mSildingFinishLayout = (SildingFinishLayout) findViewById(R.id.com_act_sildingFinishLayout);
 		mSildingFinishLayout
 				.setOnSildingFinishListener(new OnSildingFinishListener() {
-
 					@Override
-					public void onSildingFinish() {
-						CommentActivity.this.finish();
+					public void onSildingFinish(int type) {
+						// TODO Auto-generated method stub
+						if (type == 1)
+							CommentActivity.this.finish();
 					}
 				});
+		mSildingFinishLayout.setSlidingDirection(1);
 	}
 
 	@Override

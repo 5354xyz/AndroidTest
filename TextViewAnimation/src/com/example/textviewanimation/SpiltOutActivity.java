@@ -71,6 +71,7 @@ public class SpiltOutActivity extends Activity {
 	private Handler spiltOutHandler=null;
 	ImageView mTopImageView =null;//回到顶部按钮
 	SildingFinishLayout imgEntryView=null;
+	boolean onStop = false;
 	View lastview =null;
 	/** Called when the activity is first created. */
 	@Override
@@ -89,14 +90,25 @@ public class SpiltOutActivity extends Activity {
 
 		imgEntryView= (SildingFinishLayout) findViewById(R.id.pulltorefresh_sildingFinishLayout);
 		imgEntryView
-				.setOnSildingFinishListener(new OnSildingFinishListener() {
+		.setOnSildingFinishListener(new OnSildingFinishListener() {
 
-					@Override
-					public void onSildingFinish() {
-						SpiltOutActivity.this.finish();
-					}
-				});
-		
+			@Override
+			public void onSildingFinish(int type) {
+				if (type == 1)
+					SpiltOutActivity.this.finish();
+				if (type ==2){
+					onStop = true;
+					Intent fromSpiltOuttoPostIntent = new Intent();
+					fromSpiltOuttoPostIntent.setClass(SpiltOutActivity.this,
+							PostActivity.class);
+					startActivity(fromSpiltOuttoPostIntent);
+					overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+					
+				}
+					
+			}
+		});
+		imgEntryView.setSlidingDirection(3);
 		toSpiltOutButton=(Button)findViewById(R.id.SpiltOut);
 		toSpiltOutButton.setOnClickListener(new ToSpiltOutButtonOnclickListener());
 		
@@ -281,6 +293,24 @@ public class SpiltOutActivity extends Activity {
 		});
 		
 		
+	}
+
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		System.out.println("onResume:"+onStop);
+		if(onStop){
+			imgEntryView.scrollOrigin(true);
+			onStop = false;
+		}
+	}
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
 	}
 
 	@Override
