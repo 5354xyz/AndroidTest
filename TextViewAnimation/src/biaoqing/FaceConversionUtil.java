@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 import com.example.utils.File_SD_utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,6 +16,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import com.example.textviewanimation.R;
 /**
@@ -89,7 +91,17 @@ public class FaceConversionUtil {
 		}
 		Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),
 				imgId);
-		bitmap = Bitmap.createScaledBitmap(bitmap, 35, 35, true);
+		DisplayMetrics dm = new DisplayMetrics();
+		((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(dm);
+		int widthPixels= dm.widthPixels;
+		int heightPixels= dm.heightPixels;
+		System.out.println("widthPixels:"+widthPixels+"heightPixels:"+heightPixels);
+		float density = dm.density;
+		float screenWidth = widthPixels * density ;
+		float screenHeight = heightPixels * density ;
+		System.out.println("screenWidth:"+screenWidth+"screenHeight:"+screenHeight);
+		int bmpW = (int)((int)Math.sqrt(Math.sqrt(widthPixels)*Math.sqrt(screenWidth))*1.5); 
+		bitmap = Bitmap.createScaledBitmap(bitmap,bmpW,bmpW, true);
 		ImageSpan imageSpan = new ImageSpan(context, bitmap);
 		SpannableString spannable = new SpannableString(spannableString);
 		spannable.setSpan(imageSpan, 0, spannableString.length(),
@@ -128,9 +140,19 @@ public class FaceConversionUtil {
 			if (resId != 0) {
 				Bitmap bitmap = BitmapFactory.decodeResource(
 						context.getResources(), resId);
-				bitmap = Bitmap.createScaledBitmap(bitmap, 50, 50, true);
+				DisplayMetrics dm = new DisplayMetrics();
+				((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(dm);
+				int widthPixels= dm.widthPixels;
+				int heightPixels= dm.heightPixels;
+				System.out.println("widthPixels:"+widthPixels+"heightPixels:"+heightPixels);
+				float density = dm.density;
+				float screenWidth = widthPixels * density ;
+				float screenHeight = heightPixels * density ;
+				System.out.println("screenWidth:"+screenWidth+"screenHeight:"+screenHeight);
+				int bmpW = (int)((int)Math.sqrt(Math.sqrt(widthPixels)*Math.sqrt(screenWidth))*1.7);
+				bitmap = Bitmap.createScaledBitmap(bitmap, bmpW, bmpW, true);
 				// 通过图片资源id来得到bitmap，用一个ImageSpan来包装
-				ImageSpan imageSpan = new ImageSpan(bitmap);
+				ImageSpan imageSpan = new ImageSpan(context,bitmap);
 				// 计算该图片名字的长度，也就是要替换的字符串的长度
 				int end = matcher.start() + key.length();
 				// 将该图片替换字符串中规定的位置中
