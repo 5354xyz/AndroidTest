@@ -57,9 +57,9 @@ public class CommentActivity extends Activity implements OnClickListener
 	private TextView back=null;
 
 	String spiltId = "-1";
-	private static String GETNEWCOMMENT = "1";// ×îĞÂÆÀÂÛ
-	private static String GETHOTCOMMENT = "2";// ×îÈÈÆÀÂÛ
-	private static String GETNEWDOWNCOMMENT = "3";// ¸ü¶à×îĞÂÆÀÂÛ
+	private static String GETNEWCOMMENT = "1";// æœ€æ–°è¯„è®º
+	private static String GETHOTCOMMENT = "2";// æœ€çƒ­è¯„è®º
+	private static String GETNEWDOWNCOMMENT = "3";// æ›´å¤šæœ€æ–°è¯„è®º
 	private static String CommentActivityTAG = "CommentActivity";
 
 	private Handler commentHandler = new Handler() {
@@ -71,11 +71,11 @@ public class CommentActivity extends Activity implements OnClickListener
 			if (msg.obj != ""
 					&& msg.arg1 == Integer.valueOf(Contacts.RequestGetComment)
 							.intValue() && msg.what == 1) {
-				// ÈôÃ»ÓĞÆÀÂÛµÄÊ±ºòÄ¬ÈÏÕâ¸ö
+				// è‹¥æ²¡æœ‰è¯„è®ºçš„æ—¶å€™é»˜è®¤è¿™ä¸ª
 				Comment defualComment = new Comment();
 				defualComment.setComment_id("-1");
-				defualComment.setComment_comment_con("»¹Ã»ÓĞÆÀÂÛÅ¶(¡Ño¡Ñ)....");
-				// ´¦Àí·µ»Ø½á¹û
+				defualComment.setComment_comment_con("è¿˜æ²¡æœ‰è¯„è®ºå“¦(âŠ™oâŠ™)....");
+				// å¤„ç†è¿”å›ç»“æœ
 				JsonProcess jsonProcess = new JsonProcess();
 				boolean isJson = JsonProcess.isGoodJson(msg.obj.toString());
 				if (isJson) {
@@ -83,7 +83,7 @@ public class CommentActivity extends Activity implements OnClickListener
 							.getResult_comment_request(msg.obj.toString());
 					if (result.getType().equals(GETNEWCOMMENT)) {
 						System.out.println("2--------->");
-						// ´úÌæĞ¡±êÌâ£¨×îĞÂÆÀÂÛ£©
+						// ä»£æ›¿å°æ ‡é¢˜ï¼ˆæœ€æ–°è¯„è®ºï¼‰
 						newArraylist.add(defualComment);
 						if (result.getResult() != null) {
 
@@ -96,8 +96,8 @@ public class CommentActivity extends Activity implements OnClickListener
 
 							
 						}else {
-							// ´úÌæÄ¬ÈÏ±íÊ¾£¨Ã»ÓĞÆÀÂÛ£©
-							System.out.println("new´úÌæÄ¬ÈÏ±íÊ¾£¨Ã»ÓĞÆÀÂÛ£©");
+							// ä»£æ›¿é»˜è®¤è¡¨ç¤ºï¼ˆæ²¡æœ‰è¯„è®ºï¼‰
+							System.out.println("newä»£æ›¿é»˜è®¤è¡¨ç¤ºï¼ˆæ²¡æœ‰è¯„è®ºï¼‰");
 							newArraylist.add(defualComment);
 							findViewById(R.id.newemptytext).setVisibility(
 									View.VISIBLE);
@@ -109,7 +109,7 @@ public class CommentActivity extends Activity implements OnClickListener
 						newCommentAdapter.notifyDataSetChanged();
 					} else if (result.getType().equals(GETHOTCOMMENT)) {
 						System.out.println("1--------->");
-						// ´úÌæĞ¡±êÌâ£¨ÈËÆøÆÀÂÛ£©
+						// ä»£æ›¿å°æ ‡é¢˜ï¼ˆäººæ°”è¯„è®ºï¼‰
 						newArraylist.add(defualComment);
 						if (result.getResult() != null
 								&& result.getResult().size() > 0) {
@@ -123,8 +123,8 @@ public class CommentActivity extends Activity implements OnClickListener
 							newCommentAdapter.setList(newArraylist,
 									hotcommentlength, newcommentlength);
 						} else {
-							// ´úÌæÄ¬ÈÏ±íÊ¾£¨Ã»ÓĞÆÀÂÛ£©
-							System.out.println("hot´úÌæÄ¬ÈÏ±íÊ¾£¨Ã»ÓĞÆÀÂÛ£©");
+							// ä»£æ›¿é»˜è®¤è¡¨ç¤ºï¼ˆæ²¡æœ‰è¯„è®ºï¼‰
+							System.out.println("hotä»£æ›¿é»˜è®¤è¡¨ç¤ºï¼ˆæ²¡æœ‰è¯„è®ºï¼‰");
 							newArraylist.add(defualComment);
 							findViewById(R.id.newemptytext).setVisibility(
 									View.VISIBLE);
@@ -135,7 +135,7 @@ public class CommentActivity extends Activity implements OnClickListener
 					}
 
 				} else {
-					Toast.makeText(CommentActivity.this, "ÍøÂçÁ¬½Ó´íÎó£¡£¡",
+					Toast.makeText(CommentActivity.this, "ç½‘ç»œè¿æ¥é”™è¯¯ï¼ï¼",
 							Toast.LENGTH_SHORT).show();
 
 				}
@@ -143,12 +143,12 @@ public class CommentActivity extends Activity implements OnClickListener
 			} else if (msg.obj != ""
 					&& msg.arg1 == Integer.valueOf(Contacts.RequestPostComment)
 							.intValue() && msg.what == 1) {
-				// ´¦ÀíµÇÂ¼HttpÇëÇó·µ»ØµÄ½á¹û
+				// å¤„ç†ç™»å½•Httpè¯·æ±‚è¿”å›çš„ç»“æœ
 				JsonProcess jsonProcess = new JsonProcess();
 
 				String isSpilt = jsonProcess.checkStatus(msg.obj.toString());
 				if (isSpilt.equals("true")) {
-					Toast.makeText(CommentActivity.this, "·¢±í³É¹¦",
+					Toast.makeText(CommentActivity.this, "å‘è¡¨æˆåŠŸ",
 							Toast.LENGTH_SHORT).show();
 					newArraylist.add(thiscomment);
 					newCommentAdapter.setList(newArraylist, hotcommentlength,
@@ -157,7 +157,7 @@ public class CommentActivity extends Activity implements OnClickListener
 					et_comment.setText("");
 					;
 				} else {
-					Toast.makeText(CommentActivity.this, "·¢±íÊ§°Ü",
+					Toast.makeText(CommentActivity.this, "å‘è¡¨å¤±è´¥",
 							Toast.LENGTH_SHORT).show();
 				}
 			}
@@ -167,7 +167,7 @@ public class CommentActivity extends Activity implements OnClickListener
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// È¥µô±êÌâÀ¸
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// å»æ‰æ ‡é¢˜æ 
 		setContentView(R.layout.activity_comment);
 		Intent intentfromOther = getIntent();
 		spiltId = intentfromOther.getStringExtra("spiltId");
@@ -211,17 +211,17 @@ public class CommentActivity extends Activity implements OnClickListener
 		super.onResume();
 	}
 	/**
-	 * ²ÎÊı£º
-	 * 		ÇëÇóÀàĞÍ getSpiltType_fun
-	 * 		ÆÀÂÛ¶ÔÓ¦µÄÍÂ²Ûid
-	 * 		ÆÀÂÛµÄÀàĞÍ type ×îĞÂ£¬×îÈÈ£¬×îĞÂ×·¼Ó
+	 * å‚æ•°ï¼š
+	 * 		è¯·æ±‚ç±»å‹ getSpiltType_fun
+	 * 		è¯„è®ºå¯¹åº”çš„åæ§½id
+	 * 		è¯„è®ºçš„ç±»å‹ type æœ€æ–°ï¼Œæœ€çƒ­ï¼Œæœ€æ–°è¿½åŠ 
 	 * 2014-5-12
 	 * 
 	 * @author:5354xyz
 	 */
 	public void getComment(String getSpiltType_fun,String id,String type)
 	{
-		//ÇëÇóÍÆËÍÏûÏ¢µÄ²ÎÊı¶Ô
+		//è¯·æ±‚æ¨é€æ¶ˆæ¯çš„å‚æ•°å¯¹
 		NameValuePair pair1 = new BasicNameValuePair("Num",getSpiltType_fun);
 		NameValuePair pair2 = new BasicNameValuePair("ram", String.valueOf((int)(Math.random()*1000)));
 		NameValuePair pair3 = new BasicNameValuePair("GetSpiltType", getSpiltType_fun);
@@ -235,7 +235,7 @@ public class CommentActivity extends Activity implements OnClickListener
         pairList.add(pair5);
         HttpProcess httpProcess1=new HttpProcess(commentHandler,getSpiltType_fun,null);
         if (!Contacts.isNetworkConnected(CommentActivity.this)){
-    		Toast.makeText(CommentActivity.this, "ÎŞÍøÂçÁ¬½Ó£¬ÇëÉèÖÃÍøÂç", Toast.LENGTH_LONG).show();	
+    		Toast.makeText(CommentActivity.this, "æ— ç½‘ç»œè¿æ¥ï¼Œè¯·è®¾ç½®ç½‘ç»œ", Toast.LENGTH_LONG).show();	
     	}
     	else{
     		httpProcess1.execute(pairList);
@@ -268,16 +268,16 @@ public class CommentActivity extends Activity implements OnClickListener
 				if(Contacts.PersonalData.getIsLogin().equals("1")){
 				String content = et_comment.getText().toString();
 				if (!Contacts.isNetworkConnected(CommentActivity.this)) {
-					Toast.makeText(CommentActivity.this, "ÎŞÍøÂçÁ¬½Ó£¬ÇëÉèÖÃÍøÂç",
+					Toast.makeText(CommentActivity.this, "æ— ç½‘ç»œè¿æ¥ï¼Œè¯·è®¾ç½®ç½‘ç»œ",
 							Toast.LENGTH_LONG).show();
 				} else {
 					if (content.equals("")) {
-						// Í¨¹ı²úÉúÏûÏ¢ÌáĞÑ
-						Toast.makeText(CommentActivity.this, "ÄÚÈİ²»ÄÜÎª¿Õ",
+						// é€šè¿‡äº§ç”Ÿæ¶ˆæ¯æé†’
+						Toast.makeText(CommentActivity.this, "å†…å®¹ä¸èƒ½ä¸ºç©º",
 								Toast.LENGTH_SHORT).show();
 
 					} else {
-						//ÇëÇóÍÆËÍÏûÏ¢µÄ²ÎÊı¶Ô
+						//è¯·æ±‚æ¨é€æ¶ˆæ¯çš„å‚æ•°å¯¹
 						NameValuePair pair1 = new BasicNameValuePair("Num", Contacts.RequestPostComment);
 						NameValuePair pair2 = new BasicNameValuePair("User_name", Contacts.PersonalData.getUserName());
 						NameValuePair pair3 = new BasicNameValuePair("Comment", content);
@@ -307,9 +307,9 @@ public class CommentActivity extends Activity implements OnClickListener
 				}
 				}else
 				{
-					Toast.makeText(CommentActivity.this, "ÒªÏÈµÇÂ¼ £¬²ÅÄÜÍÂ²Û(¡Ño¡Ñ)Å¶", Toast.LENGTH_LONG).show();
+					Toast.makeText(CommentActivity.this, "è¦å…ˆç™»å½• ï¼Œæ‰èƒ½åæ§½(âŠ™oâŠ™)å“¦", Toast.LENGTH_LONG).show();
 		        	Intent fromComment2LoginIntent = new Intent();
-		        	//½²Êı¾İ¼ÓÈëµ½Intentµ±ÖĞÈ¥ 
+		        	//è®²æ•°æ®åŠ å…¥åˆ°Intentå½“ä¸­å» 
 		        	fromComment2LoginIntent.putExtra("from",CommentActivityTAG);
 		        	fromComment2LoginIntent.setClass(CommentActivity.this,
 							LoginActivity.class);
